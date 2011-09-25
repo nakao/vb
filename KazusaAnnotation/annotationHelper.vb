@@ -9,7 +9,7 @@
 Sub makeAddBookmarkUrl()
     Dim baseUrl, target As String
     Dim maxRow, i As Integer
-    maxRow = Range("C1").End(xlDown).Row
+    maxRow = Range("C1").End(xlDown).Row ' 表の最終行
     For i = 2 To maxRow
         target = AddBookmarkUrl(Cells(i, "A").Value, Cells(i, "B").Value, Cells(i, "C").Value, Cells(i, "D").Value, Cells(i, "E").Value)
         Cells(i, "G").Value = target
@@ -30,10 +30,6 @@ End Function
 Function genomeUrl(dataset As String, genome As String, gene As String) As String
     genomeUrl = "http://genome.kazusa.or.jp/" + dataset + "/" + genome + "/genes/" + gene
 End Function
-
-Private Sub Worksheet_SelectionChange(ByVal target As Range)
-
-End Sub
 
 Sub clearLinks()
     Dim maxRow, i As Integer
